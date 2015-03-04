@@ -7,7 +7,7 @@
     <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>-->
     <link rel="stylesheet" href="app.css"/>
 </head>
-<body>
+<body ng-cloak>
 
 <div class="container-fluid">
 
@@ -23,9 +23,15 @@
         <img ng-src="{{event.imageUrl}}" alt="" style="width: 100%"/>
         <div class="row">
             <div class="col-xs-11">
-                <h2>{{event.name}}</h2>
+                <h2 ng-bind-template="{{event.name}} {{event.date}}"></h2>
             </div>
         </div>
+
+        <div ng-bind-html="snippet">some title</div>
+
+        <div ng-show="boolValue">Show this</div>
+        <div ng-hide="boolValue">Hide this</div>
+
         <div class="row">
             <div class="col-xs-3">
                 <div><strong>Date:</strong>{{event.date}}</div>
@@ -80,6 +86,7 @@
     <div id="scripts">
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="app.js"></script>
         <script src="controllers/EventController.js"></script>
         <script src="components/version/version.js"></script>
