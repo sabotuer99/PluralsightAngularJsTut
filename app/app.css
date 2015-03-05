@@ -32,3 +32,29 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
+.myAddon {
+    width: 20%;
+    min-width: 125px;
+    overflow: hidden;
+
+}
+
+.square {
+    border-radius: 0 !important;
+}
+
+.square-bottom {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.square-top {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.myGroup {
+    width: 100%;
+    max-width: 600px;
+}

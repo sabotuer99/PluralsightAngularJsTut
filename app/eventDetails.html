@@ -20,22 +20,39 @@
     </div>
 
     <div ng-controller="EventController" style="padding: 0px 20px">
-        <img ng-src="{{event.imageUrl}}" alt="" style="width: 100%"/>
+        <img ng-src="{{event.imageUrl}}" alt="" style="width: 100%; max-width: 800px"/>
         <div class="row">
             <div class="col-xs-11">
-                <h2 ng-bind-template="{{event.name}} {{event.date}}"></h2>
+                <h2 ng-bind-template="{{event.name | uppercase}} {{event.date | date: 'shortDate'}}"></h2>
             </div>
         </div>
 
-        <div ng-bind-html="snippet">some title</div>
+        <!--put the misc playing around stuff in here-->
+        <!----->
+        <!----->
+        <div class="well well-sm">
+            <div class="panel-header label-primary">Playground</div>
+            <br/><br/>
+            <div ng-bind-html="snippet">some title</div>
 
-        <div ng-show="boolValue">Show this</div>
-        <div ng-hide="boolValue">Hide this</div>
+            <div ng-show="boolValue">Show this</div>
+            <div ng-hide="boolValue">Hide this</div>
+
+            <div>{{ 3.14159876 | number:2}}</div>
+            <div>{{ 3 | number:2}}</div>
+
+            <div>{{ {a:3, b:'hi', c:{aa:35} } | json }}</div>
+        </div>
+        <!----->
+        <!----->
+        <!----->
+
 
         <div class="row">
             <div class="col-xs-3">
-                <div><strong>Date:</strong>{{event.date}}</div>
+                <div><strong>Date:</strong>{{event.date | date: 'mediumDate'}}</div>
                 <div><strong>Time:</strong>{{event.time}}</div>
+                <div><strong>Price:</strong>{{34 | currency}}</div>
             </div>
             <div class="col-xs-4">
                 <address>
@@ -47,8 +64,23 @@
         </div>
         <hr/>
         <h3>Sessions</h3>
+        Order By:&nbsp
+        <select class="btn btn-success btn-xs" ng-model="sortorder">
+            <option value="name">Name</option>
+            <option value="-upVoteCount">Votes</option>
+        </select>
+
+        Show:&nbsp
+        <select class="btn btn-success btn-xs" ng-model="query.level">
+            <option value="">All</option>
+            <option value="introductory">Introductory</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+
+        <br/><br/>
         <div style="padding: 0px 20px">
-            <div ng-repeat="session in event.sessions">
+            <div ng-repeat="session in event.sessions | orderBy: sortorder | filter: query | limitTo: 2  ">
                 <div class="row session">
 
                     <div class="col-xs-1 panel votingWidget panel-default" >
@@ -69,7 +101,7 @@
                         <h4 class="well-title">{{session.name}}</h4>
                         <h6>{{session.creatorname}}</h6>
                         <div class="panel-body">
-                            <span>Duration: {{session.duration}}</span><br/>
+                            <span>Duration: {{session.duration | durations}}</span><br/>
                             <span>Level: {{session.level}}</span><br/>
                             <p>{{session.abstract}}</p>
                         </div>
@@ -88,6 +120,7 @@
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="app.js"></script>
+        <script src="filters.js"></script>
         <script src="controllers/EventController.js"></script>
         <script src="components/version/version.js"></script>
         <script src="components/version/version-directive.js"></script>
