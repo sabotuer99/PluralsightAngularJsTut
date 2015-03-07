@@ -58,3 +58,11 @@
     width: 100%;
     max-width: 600px;
 }
+
+input.ng-dirty.ng-invalid {
+    border: 2px red solid;
+}
+
+input.ng-touched {
+    background-color: lightyellow;
+}

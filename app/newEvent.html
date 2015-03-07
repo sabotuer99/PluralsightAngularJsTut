@@ -23,60 +23,63 @@
         <div class="container">
             <h1>New Event</h1>
             <hr/>
-            <fieldset>
-                <div class="input-group myGroup  input-group-sm">
-                    <div class="input-group-addon myAddon">Event Name</div>
-                    <input ng-model="event.name" type="text" class="form-control" placeholder="Name of your event..."/>
-                </div>
-                <br/>
+            <form name="newEventForm">
+                <fieldset>
+                    <div class="input-group myGroup  input-group-sm">
+                        <div class="input-group-addon myAddon">Event Name</div>
+                        <input required ng-model="event.name" type="text" class="form-control"
+                               placeholder="Name of your event..."/>
+                    </div>
+                    <br/>
 
-                <div class="input-group myGroup  input-group-sm">
-                    <div class="input-group-addon myAddon">Event Date</div>
-                    <input ng-model="event.date" type="text" class="form-control" placeholder="format (mm/dd/yyyy)..."/>
-                </div>
-                <br/>
+                    <div class="input-group myGroup  input-group-sm">
+                        <div class="input-group-addon myAddon">Event Date</div>
+                        <input required ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.date" type="text"
+                               class="form-control" placeholder="format (mm/dd/yyyy)..."/>
+                    </div>
+                    <br/>
 
-                <div class="input-group myGroup input-group-sm">
-                    <div class="input-group-addon myAddon">Event Time</div>
-                    <input ng-model="event.time" type="text" class="form-control" placeholder="start and end time"/>
-                </div>
-                <br/>
+                    <div class="input-group myGroup input-group-sm">
+                        <div class="input-group-addon myAddon">Event Time</div>
+                        <input ng-model="event.time" type="text" class="form-control" placeholder="start and end time"/>
+                    </div>
+                    <br/>
 
-                <div class="input-group myGroup input-group-sm">
-                    <div class="input-group-addon myAddon square-bottom">Event Location</div>
-                    <input ng-model="event.location.address" type="text" class="form-control square-bottom"
-                           placeholder="Address of event..."/>
-                </div>
-                <div class="input-group myGroup input-group-sm">
-                    <div class="input-group-addon myAddon square">City</div>
-                    <input ng-model="event.location.city" type="text" class="form-control square"
-                           placeholder="City..."/>
-                </div>
-                <div class="input-group myGroup input-group-sm">
-                    <div class="input-group-addon myAddon square-top">State</div>
-                    <input ng-model="event.location.state" type="text" class="form-control square-top"
-                           placeholder="State..."/>
-                </div>
-                <br/>
+                    <div class="input-group myGroup input-group-sm">
+                        <div class="input-group-addon myAddon square-bottom">Event Location</div>
+                        <input ng-model="event.location.address" type="text" class="form-control square-bottom"
+                               placeholder="Address of event..."/>
+                    </div>
+                    <div class="input-group myGroup input-group-sm">
+                        <div class="input-group-addon myAddon square">City</div>
+                        <input ng-model="event.location.city" type="text" class="form-control square"
+                               placeholder="City..."/>
+                    </div>
+                    <div class="input-group myGroup input-group-sm">
+                        <div class="input-group-addon myAddon square-top">State</div>
+                        <input ng-model="event.location.state" type="text" class="form-control square-top"
+                               placeholder="State..."/>
+                    </div>
+                    <br/>
 
-                <div class="input-group myGroup input-group-sm">
-                    <div class="input-group-addon myAddon">Image:</div>
-                    <input ng-model="event.imageUrl" type="url" class="form-control" placeholder="Url of image..."/>
+                    <div class="input-group myGroup input-group-sm">
+                        <div class="input-group-addon myAddon">Image:</div>
+                        <input ng-model="event.imageUrl" type="url" class="form-control" placeholder="Url of image..."/>
+                    </div>
+                    <br/>
+                </fieldset>
+
+                <div class="row">
+                    <div class="col-xs-3 btn-group-sm">
+                        <button class="btn btn-primary" ng-disabled="newEventForm.$invalid" ng-click="saveEvent(event, newEventForm)" style="margin: 1px">Save</button>
+                        <button class="btn btn-default" ng-click="cancelEdit()" style="margin: 1px">Cancel</button>
+                    </div>
+                    <br/>
+
+                    <img ng-src="{{event.imageUrl}}" src="" class="col-xs-9"/>
+                    <br/>
                 </div>
-                <br/>
-            </fieldset>
-
-            <div class="row">
-                <div class="col-xs-3 btn-group-sm">
-                    <button class="btn btn-primary" style="margin: 1px">Save</button>
-                    <button class="btn btn-default" style="margin: 1px">Cancel</button>
-                </div>
-                <br/>
-
-                <img ng-src="{{event.imageUrl}}" src="" class="col-xs-9"/>
-                <br/>
-            </div>
-
+            </form>
 
         </div>
     </div>
