@@ -11,16 +11,62 @@
 
 <div class="container-fluid">
 
-    <div class="navbar navbar-default">
-        <div class="navbar-inner">
-            <ul class="nav">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ngEvents</a>
+            </div>
 
-            </ul>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Event Details<span class="sr-only">(current)</span></a></li>
+                    <li><a href="/newEvent.html">Create Event</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
+
+    <!--<nav class="navbar navbar-default">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="navbar-header">-->
+                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+                    <!--<span class="sr-only">Toggle navigation</span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                <!--</button>-->
+                <!--<a class="navbar-brand" href="#">ngEvents</a>-->
+            <!--</div>-->
+            <!--<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">-->
+                <!--<ul class="nav navbar-nav">-->
+                    <!--<li class="active"><a href="#">Home</a></li>-->
+                    <!--<li><a href="#">About</a></li>-->
+                    <!--<li><a href="#">Contact</a></li>-->
+                <!--</ul>-->
+            <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
+        <!--</div>&lt;!&ndash;/.container-fluid &ndash;&gt;-->
+    <!--</nav>-->
+
+    <!--<div class="navbar navbar-default">-->
+    <!--<div class="navbar-inner">-->
+    <!--<ul class="nav nav-pills">-->
+    <!--<li role="presentation"><a href="/newEvent.html">Create Event</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
 
     <div ng-controller="EventController" style="padding: 0px 20px">
         <img ng-src="{{event.imageUrl}}" alt="" style="width: 100%; max-width: 800px"/>
+
         <div class="row">
             <div class="col-xs-11">
                 <h2 ng-bind-template="{{event.name | uppercase}} {{event.date | date: 'shortDate'}}"></h2>
@@ -30,19 +76,19 @@
         <!--put the misc playing around stuff in here-->
         <!----->
         <!----->
-        <div class="well well-sm">
-            <div class="panel-header label-primary">Playground</div>
-            <br/><br/>
-            <div ng-bind-html="snippet">some title</div>
+        <!--<div class="well well-sm">-->
+        <!--<div class="panel-header label-primary">Playground</div>-->
+        <!--<br/><br/>-->
+        <!--<div ng-bind-html="snippet">some title</div>-->
 
-            <div ng-show="boolValue">Show this</div>
-            <div ng-hide="boolValue">Hide this</div>
+        <!--<div ng-show="boolValue">Show this</div>-->
+        <!--<div ng-hide="boolValue">Hide this</div>-->
 
-            <div>{{ 3.14159876 | number:2}}</div>
-            <div>{{ 3 | number:2}}</div>
+        <!--<div>{{ 3.14159876 | number:2}}</div>-->
+        <!--<div>{{ 3 | number:2}}</div>-->
 
-            <div>{{ {a:3, b:'hi', c:{aa:35} } | json }}</div>
-        </div>
+        <!--<div>{{ {a:3, b:'hi', c:{aa:35} } | json }}</div>-->
+        <!--</div>-->
         <!----->
         <!----->
         <!----->
@@ -79,11 +125,12 @@
         </select>
 
         <br/><br/>
+
         <div style="padding: 0px 20px">
             <div ng-repeat="session in event.sessions | orderBy: sortorder | filter: query | limitTo: 2  ">
                 <div class="row session">
 
-                    <div class="col-xs-1 panel votingWidget panel-default" >
+                    <div class="col-xs-1 panel votingWidget panel-default">
                         <div class="row">
                             <div class="votingButton center-block text-center" ng-click="upVoteSession(session)">
                                 <i class="glyphicon glyphicon-chevron-up icon-white glyphicon-align-center"></i>
@@ -100,9 +147,11 @@
                     <div class="well well-sm col-xs-9">
                         <h4 class="well-title">{{session.name}}</h4>
                         <h6>{{session.creatorname}}</h6>
+
                         <div class="panel-body">
                             <span>Duration: {{session.duration | durations}}</span><br/>
                             <span>Level: {{session.level}}</span><br/>
+
                             <p>{{session.abstract}}</p>
                         </div>
                     </div>
@@ -113,19 +162,19 @@
 </div>
 
 
-
-
-    <div id="scripts">
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="app.js"></script>
-        <script src="filters.js"></script>
-        <script src="controllers/EventController.js"></script>
-        <script src="services/EventData.js"></script>
-        <script src="components/version/version.js"></script>
-        <script src="components/version/version-directive.js"></script>
-        <script src="components/version/interpolate-filter.js"></script>
-    </div>
+<div id="scripts">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="filters.js"></script>
+    <script src="controllers/EventController.js"></script>
+    <script src="services/EventData.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+</div>
 </body>
 </html>

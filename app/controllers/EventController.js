@@ -8,7 +8,7 @@ eventsApp.controller('EventController',
         $scope.boolValue = true;
         $scope.sortorder = 'name';
 
-        $scope.event = eventData.getEvent(function(event) {
+        $scope.event = eventData.getEvent().then(function (event) {
             $scope.event = event;
         });
 
