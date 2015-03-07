@@ -8,8 +8,15 @@ eventsApp.controller('EventController',
         $scope.boolValue = true;
         $scope.sortorder = 'name';
 
+        //$scope.event = eventData.getEvent();
+
+        //this was before using $resource
+        //promise unwrapping is deprecated, use .then
         $scope.event = eventData.getEvent().then(function (event) {
+            console.log(event);
             $scope.event = event;
+        }, function(status) {
+            console.log(status);
         });
 
         $scope.upVoteSession = function (session) {

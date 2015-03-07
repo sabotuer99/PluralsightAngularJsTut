@@ -63,10 +63,18 @@
                     <br/>
 
                     <div class="input-group myGroup input-group-sm">
+                        <div class="input-group-addon myAddon">Id:</div>
+                        <input ng-model="event.id" type="number" class="form-control" placeholder="Id number..."/>
+                    </div>
+                    <br/>
+
+                    <div class="input-group myGroup input-group-sm">
                         <div class="input-group-addon myAddon">Image:</div>
                         <input ng-model="event.imageUrl" type="url" class="form-control" placeholder="Url of image..."/>
                     </div>
                     <br/>
+
+
                 </fieldset>
 
                 <div class="row">
@@ -90,10 +98,12 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="app.js"></script>
     <script src="filters.js"></script>
     <script src="controllers/EventController.js"></script>
     <script src="controllers/EditEventController.js"></script>
+    <script src="services/EventData.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
