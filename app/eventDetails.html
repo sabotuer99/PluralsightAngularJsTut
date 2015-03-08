@@ -66,6 +66,7 @@
 
     <div ng-controller="EventController" style="padding: 0px 20px">
         <img ng-src="{{event.imageUrl}}" alt="" style="width: 100%; max-width: 800px"/>
+        <button class="btn btn-primary"  ng-click="scrollToSession()">Scroll</button>
 
         <div class="row">
             <div class="col-xs-11">
@@ -127,7 +128,7 @@
         <br/><br/>
 
         <div style="padding: 0px 20px">
-            <div ng-repeat="session in event.sessions | orderBy: sortorder | filter: query | limitTo: 2  ">
+            <div ng-repeat="session in event.sessions | orderBy: sortorder | filter: query" id="session{{session.id}}">
                 <div class="row session">
 
                     <div class="col-xs-1 panel votingWidget panel-default">

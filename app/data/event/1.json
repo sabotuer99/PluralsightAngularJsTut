@@ -11,6 +11,7 @@
   "sessions": [
     {
       "name": "Directives Masterclass",
+      "id":1,
       "creatorname": "Bob Smith",
       "duration": 1,
       "level": "Advanced",
@@ -19,6 +20,7 @@
     },
     {
       "name": "Scopes for fun and profit",
+      "id":2,
       "creatorname": "John Doe",
       "duration": 2,
       "level": "Introductory",
@@ -27,6 +29,7 @@
     },
     {
       "name": "Well Behaved Controllers",
+      "id":3,
       "creatorname": "Jane Doe",
       "duration": 4,
       "level": "Intermediate",

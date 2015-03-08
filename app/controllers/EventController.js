@@ -2,7 +2,7 @@
  * Created by troy on 3/3/15.
  */
 eventsApp.controller('EventController',
-    function ($scope, eventData) {
+    function ($scope, eventData, $anchorScroll) {
 
         $scope.snippet = '<span style="color:red">hi there</span>';
         $scope.boolValue = true;
@@ -25,6 +25,10 @@ eventsApp.controller('EventController',
 
         $scope.downVoteSession = function (session) {
             session.upVoteCount--;
+        }
+
+        $scope.scrollToSession = function() {
+            $anchorScroll();
         }
 
     }
