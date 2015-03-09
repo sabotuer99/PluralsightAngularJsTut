@@ -2,9 +2,9 @@
  * Created by troy on 3/6/15.
  */
 
-eventsApp.factory('gravatarUrlBuilder', function () {
+eventsApp.factory('gravatarUrlBuilder', function (md5Hasher) {
     return {
-        buildGravatarUrl: function (email, md5Hasher) {
+        buildGravatarUrl: function (email) {
             var defaultGravatarUrl = "http://www.gravatar.com/avatar/000?s=200";
 
             var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

@@ -15,9 +15,10 @@
     <hr/>
 
     <form name="profileForm">
+        <div class="row" style="max-width: 800px;">
         <div class="row">
             <div class="col-xs-4">
-                <img ng-src="{{getGravatarUrl(user.email)}}" class="pull-right" style="width:100%;max-height: 200px; max-width: 200px;"/>
+                <gravatar email="{{user.email}}" class="pull-right" style="width:100%;max-height: 200px; max-width: 200px;"></gravatar>
             </div>
 
             <div class="col-xs-8 pull-left" class="myGroup">
@@ -68,6 +69,7 @@
             </div>
             <br/>
         </div>
+            </div>
     </form>
 </div>
 
