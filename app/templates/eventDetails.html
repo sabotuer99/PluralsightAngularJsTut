@@ -136,19 +136,7 @@
             <div ng-repeat="session in event.sessions | orderBy: sortorder | filter: query" id="session{{session.id}}">
                 <div class="row session">
 
-                    <div class="col-xs-1 panel votingWidget panel-default">
-                        <div class="row">
-                            <div class="votingButton center-block text-center" ng-click="upVoteSession(session)">
-                                <i class="glyphicon glyphicon-chevron-up icon-white glyphicon-align-center"></i>
-                            </div>
-                            <div class="badge badge-inverse center-block">
-                                {{session.upVoteCount}}
-                            </div>
-                            <div class="votingButton center-block text-center" ng-click="downVoteSession(session)">
-                                <i class="glyphicon glyphicon-chevron-down icon-white glyphicon-align-center"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <upvote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount"></upvote>
 
                     <div class="well well-sm col-xs-9">
                         <h4 class="well-title">{{session.name}}</h4>
