@@ -1,20 +1,24 @@
 /**
  * Created by troy on 3/6/15.
  */
-eventsApp.factory("eventData", function ($resource, $q){/*, $http, $log, $q*/
-    var resource = $resource('/data/event/:id', {id:'@id'}, {"getAll": {method: "GET", isArray:true, params: {something:"foo"}}});
+eventsApp.factory("eventData", function ($resource, $q, $timeout){/*, $http, $log, $q*/
+    var resource = $resource('/data/event/:id', {id:'@id'}, {
+        "getAll": {method: "GET", isArray:true, params: {something:"foo"}//,
+        //"getAllEvents": {method: "GET", isArray:true, url:"/data/event"}
+        }});
     return {
-        getEvent: function () {
+        getEvent: function (eventId) {
             var deferred = $q.defer();
 
-                resource.get({id:1},
+            $timeout(function () {
+                resource.get({id:eventId},
                 function (event) {
                     deferred.resolve(event);
                 },
                 function (response) {
                     deferred.reject(response);
                 });
-
+            }, 3000);
             return deferred.promise;
             //
             //replace with resource call
@@ -41,6 +45,9 @@ eventsApp.factory("eventData", function ($resource, $q){/*, $http, $log, $q*/
             function(response) {deferred.reject(response);}
 
             return deferred.promise;
+        },
+        getAllEvents: function () {
+            return resource.query();
         }
     };
 });

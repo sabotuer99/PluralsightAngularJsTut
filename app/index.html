@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="eventsApp">
 <head lang="en">
+    <base href="/">
     <meta charset="UTF-8">
     <title>Event Registration</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
@@ -28,9 +29,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#/eventDetails">Event Details<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#/newEvent">Create Event</a></li>
-                    <li><a href="#/editProfile">Edit Profile</a></li>
+                    <li class="active"><a href="eventDetails">Event Details<span class="sr-only">(current)</span></a></li>
+                    <li><a href="newEvent">Create Event</a></li>
+                    <li><a href="editProfile">Edit Profile</a></li>
                 </ul>
             </div>
         </div>
@@ -51,7 +52,7 @@
     <script src="filters.js"></script>
     <script src="controllers/EventController.js"></script>
     <script src="controllers/EditEventController.js"></script>
-    <script src="controllers/EditProfileController.js"></script>
+    <script src="controllers/EventListController.js"></script>
     <script src="services/EventData.js"></script>
     <script src="services/GravatarUrlBuilder.js"></script>
     <script src="services/Md5Hasher.js"></script>

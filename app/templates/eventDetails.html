@@ -64,9 +64,14 @@
     <!--</div>-->
     <!--</div>-->
 
-    <div ng-controller="EventController" style="padding: 0px 20px">
+    <div style="padding: 0px 20px">
         <img ng-src="{{event.imageUrl}}" alt="" style="width: 100%; max-width: 800px"/>
-        <button class="btn btn-primary"  ng-click="scrollToSession()">Scroll</button>
+
+        <!--Scroll to a specific session-->
+        <!--<button class="btn btn-primary"  ng-click="scrollToSession()">Scroll</button>-->
+
+        <!--Angular style reload-->
+        <!--<div class="btn btn-primary" ng-click="reload()">Reload</div>-->
 
         <div class="row">
             <div class="col-xs-11">
