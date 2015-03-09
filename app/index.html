@@ -12,7 +12,7 @@
 
 <div class="container-fluid">
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" ng-controller="MainMenuController">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="eventDetails">Event Details<span class="sr-only">(current)</span></a></li>
-                    <li><a href="newEvent">Create Event</a></li>
+                    <li><a href="#" ng-click="createEvent()">Create Event</a></li>
                     <li><a href="editProfile">Edit Profile</a></li>
                 </ul>
             </div>
@@ -53,6 +53,7 @@
     <script src="controllers/EventController.js"></script>
     <script src="controllers/EditEventController.js"></script>
     <script src="controllers/EventListController.js"></script>
+    <script src="controllers/MainMenuController.js"></script>
     <script src="services/EventData.js"></script>
     <script src="services/GravatarUrlBuilder.js"></script>
     <script src="services/Md5Hasher.js"></script>
