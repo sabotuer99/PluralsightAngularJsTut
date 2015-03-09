@@ -1,59 +1,59 @@
 <!--<!DOCTYPE html>-->
 <!--<html ng-app="eventsApp">-->
 <!--<head lang="en">-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>Event Registration</title>-->
-    <!--<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>-->
-    <!--&lt;!&ndash;<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>&ndash;&gt;-->
-    <!--<link rel="stylesheet" href="../app.css"/>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Event Registration</title>-->
+<!--<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>-->
+<!--&lt;!&ndash;<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>&ndash;&gt;-->
+<!--<link rel="stylesheet" href="../app.css"/>-->
 <!--</head>-->
 <!--<body ng-cloak>-->
 
 <div class="container-fluid">
 
     <!--<nav class="navbar navbar-default">-->
-        <!--<div class="container-fluid">-->
-            <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-            <!--<div class="navbar-header">-->
-                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
-                        <!--data-target="#bs-example-navbar-collapse-1">-->
-                    <!--<span class="sr-only">Toggle navigation</span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                <!--</button>-->
-                <!--<a class="navbar-brand" href="#">ngEvents</a>-->
-            <!--</div>-->
+    <!--<div class="container-fluid">-->
+    <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+    <!--<div class="navbar-header">-->
+    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
+    <!--data-target="#bs-example-navbar-collapse-1">-->
+    <!--<span class="sr-only">Toggle navigation</span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--</button>-->
+    <!--<a class="navbar-brand" href="#">ngEvents</a>-->
+    <!--</div>-->
 
-            <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
-            <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-                <!--<ul class="nav navbar-nav">-->
-                    <!--<li class="active"><a href="#">Event Details<span class="sr-only">(current)</span></a></li>-->
-                    <!--<li><a href="/newEvent.html">Create Event</a></li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+    <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+    <!--<ul class="nav navbar-nav">-->
+    <!--<li class="active"><a href="#">Event Details<span class="sr-only">(current)</span></a></li>-->
+    <!--<li><a href="/newEvent.html">Create Event</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
     <!--</nav>-->
 
     <!--<nav class="navbar navbar-default">-->
-        <!--<div class="container-fluid">-->
-            <!--<div class="navbar-header">-->
-                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
-                    <!--<span class="sr-only">Toggle navigation</span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                <!--</button>-->
-                <!--<a class="navbar-brand" href="#">ngEvents</a>-->
-            <!--</div>-->
-            <!--<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">-->
-                <!--<ul class="nav navbar-nav">-->
-                    <!--<li class="active"><a href="#">Home</a></li>-->
-                    <!--<li><a href="#">About</a></li>-->
-                    <!--<li><a href="#">Contact</a></li>-->
-                <!--</ul>-->
-            <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
-        <!--</div>&lt;!&ndash;/.container-fluid &ndash;&gt;-->
+    <!--<div class="container-fluid">-->
+    <!--<div class="navbar-header">-->
+    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+    <!--<span class="sr-only">Toggle navigation</span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--<span class="icon-bar"></span>-->
+    <!--</button>-->
+    <!--<a class="navbar-brand" href="#">ngEvents</a>-->
+    <!--</div>-->
+    <!--<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">-->
+    <!--<ul class="nav navbar-nav">-->
+    <!--<li class="active"><a href="#">Home</a></li>-->
+    <!--<li><a href="#">About</a></li>-->
+    <!--<li><a href="#">Contact</a></li>-->
+    <!--</ul>-->
+    <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
+    <!--</div>&lt;!&ndash;/.container-fluid &ndash;&gt;-->
     <!--</nav>-->
 
     <!--<div class="navbar navbar-default">-->
@@ -136,18 +136,21 @@
             <div ng-repeat="session in event.sessions | orderBy: sortorder | filter: query" id="session{{session.id}}">
                 <div class="row session">
 
-                    <upvote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount"></upvote>
+                    <upvote upvote="upVoteSession(session)" downvote="downVoteSession(session)"
+                            count="session.upVoteCount"></upvote>
 
                     <div class="well well-sm col-xs-9">
-                        <h4 class="well-title">{{session.name}}</h4>
-                        <h6>{{session.creatorname}}</h6>
+                        <collapsible title="session.name">
+                            <!--<h4 class="well-title">{{session.name}}</h4>-->
+                            <h6>{{session.creatorname}}</h6>
 
-                        <div class="panel-body">
-                            <span>Duration: {{session.duration | durations}}</span><br/>
-                            <span>Level: {{session.level}}</span><br/>
+                            <div class="panel-body">
+                                <span>Duration: {{session.duration | durations}}</span><br/>
+                                <span>Level: {{session.level}}</span><br/>
 
-                            <p>{{session.abstract}}</p>
-                        </div>
+                                <p>{{session.abstract}}</p>
+                            </div>
+                        </collapsible>
                     </div>
                 </div>
             </div>
@@ -157,19 +160,19 @@
 
 
 <!--<div id="scripts">-->
-    <!--<script src="../bower_components/angular/angular.js"></script>-->
-    <!--<script src="../bower_components/angular-route/angular-route.js"></script>-->
-    <!--<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>-->
-    <!--<script src="../bower_components/angular-resource/angular-resource.js"></script>-->
-    <!--<script src="../bower_components/jquery/dist/jquery.js"></script>-->
-    <!--<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
-    <!--<script src="../app.js"></script>-->
-    <!--<script src="../filters.js"></script>-->
-    <!--<script src="../controllers/EventController.js"></script>-->
-    <!--<script src="../services/EventData.js"></script>-->
-    <!--<script src="../components/version/version.js"></script>-->
-    <!--<script src="../components/version/version-directive.js"></script>-->
-    <!--<script src="../components/version/interpolate-filter.js"></script>-->
+<!--<script src="../bower_components/angular/angular.js"></script>-->
+<!--<script src="../bower_components/angular-route/angular-route.js"></script>-->
+<!--<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>-->
+<!--<script src="../bower_components/angular-resource/angular-resource.js"></script>-->
+<!--<script src="../bower_components/jquery/dist/jquery.js"></script>-->
+<!--<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+<!--<script src="../app.js"></script>-->
+<!--<script src="../filters.js"></script>-->
+<!--<script src="../controllers/EventController.js"></script>-->
+<!--<script src="../services/EventData.js"></script>-->
+<!--<script src="../components/version/version.js"></script>-->
+<!--<script src="../components/version/version-directive.js"></script>-->
+<!--<script src="../components/version/interpolate-filter.js"></script>-->
 <!--</div>-->
 <!--</body>-->
 <!--</html>-->

@@ -44,6 +44,16 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngCook
                 templateUrl:'templates/sampleDirective.html',
                 controller: 'SampleDirectiveController'
             })
+            .when('/directiveControllerSample',
+            {
+                templateUrl:'templates/directiveControllerSample.html',
+                controller: 'DirectiveControllerSampleController'
+            })
+            .when('/directiveCompileSample',
+            {
+                templateUrl:'templates/directiveCompileSample.html',
+                controller: 'DirectiveCompileSampleController'
+            })
             .otherwise({redirectTo: '/events'});
         $locationProvider.html5Mode(true);
     });
