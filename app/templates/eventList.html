@@ -4,7 +4,7 @@
     <hr/>
     <div class="row">
         <div ng-repeat="event in events | orderBy:sortorder" class="col-sm-5">
-                <event-thumbnail event="event"/>
+                <event-thumbnail event="event" show-details="navigateToDetails(event)"></event-thumbnail>
         </div>
     </div>
 </div>

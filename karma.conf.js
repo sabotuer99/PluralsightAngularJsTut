@@ -1,23 +1,37 @@
 module.exports = function (config) {
     config.set({
 
-        basePath: './',
+        basePath: './app',
 
         files: [
-            'app/bower_components/angular/angular.js',
-            'app/bower_components/angular-route/angular-route.js',
-            'app/bower_components/angular-mocks/angular-mocks.js',
-            'app/bower_components/angular-sanitize/angular-sanitize.js',
-            'app/bower_components/angular-resource/angular-resource.js',
-            'app/bower_components/angular-cookies/angular-cookies.js',
-            'tests/lib/sinon-1.13.0.js',
-            'app/app.js',
-            'app/components/**/*.js',
-            'app/controllers/**/*.js',
-            'app/services/**/*.js',
-            'app/view*/**/*.js',
-            'tests/unit/*.js'
+            'bower_components/angular/angular.js',
+            'bower_components/angular-route/angular-route.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'bower_components/angular-sanitize/angular-sanitize.js',
+            'bower_components/angular-resource/angular-resource.js',
+            'bower_components/angular-cookies/angular-cookies.js',
+            //'bower_components/angular-scenario/angular-scenario.js',
+            'bower_components/jquery/dist/jquery.js',
+            //'bower_components/protractor/lib/protractor.js',
+            '../tests/lib/sinon-1.13.0.js',
+            'app.js',
+            'components/**/*.js',
+            'directives/**/*.js',
+            'controllers/**/*.js',
+            'filters.js',
+            'services/**/*.js',
+            'view*/**/*.js',
+            '../tests/unit/*.js',
+            'templates/**/*.html'
         ],
+
+        //preprocessor: {
+        //    'app/templates/directives/*.html': 'html2js'
+        //},
+
+        //ngHtml2JsPreprocessor: {
+        //    stripPrefix: 'app/'
+        //},
 
         autoWatch: true,
 
@@ -30,7 +44,8 @@ module.exports = function (config) {
             'karma-firefox-launcher',
             'karma-phantomjs-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-ng-html2js-preprocessor'
         ],
 
         junitReporter: {

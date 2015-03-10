@@ -4,10 +4,11 @@
 eventsApp.directive('eventThumbnail', function () {
     return {
         scope: {
-            event:"="
+            event:"=",
+            showDetails: '&'
         },
         restrict: 'E',
-        templateUrl:'/templates/directives/eventThumbnail.html',
+        templateUrl:'templates/directives/eventThumbnail.html',
         replace: true
     }
 })

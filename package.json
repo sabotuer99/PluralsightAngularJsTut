@@ -10,6 +10,7 @@
     "http-server": "^0.6.1",
     "karma": "~0.10",
     "karma-junit-reporter": "^0.2.2",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-phantomjs-launcher": "^0.1.4",
     "protractor": "^1.1.1",
     "shelljs": "^0.2.6"
